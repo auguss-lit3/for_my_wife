@@ -1,0 +1,309 @@
+:root {
+    --color-hover: #be2edd;
+    --color-border: #e056fd;
+    --color-texto: #6ab04c;
+}
+html {
+    scroll-behavior: smooth;
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Chinese Rocks';
+    font-style: normal;
+    font-weight: 400;
+    src: url('images/chinese-rocks-rg.otf'), format('opentype');
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Faustina';
+    font-style: normal;
+    font-weight: 400;
+    src: url('images/Faustina-VariableFont_wght.ttf'), format('.ttf'),
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+/* Body */
+body {
+    background: #fd79a8 url('images/fondo.jpg') no-repeat center/cover fixed;
+    color: white;
+    min-height: 150vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Header */
+header {
+    text-align: center;
+    position: fixed;
+    background-color: black;
+    top: -100px;
+    width: 100%;
+    transition: top 0.4s ease-out;
+    z-index: 1000;
+}
+
+header h1 {
+    font-family: 'Chinese Rocks', serif;
+    color: grey;
+    transition: color 0.3s ease-in;
+}
+
+header h1:hover {
+    color: var(--color-hover);
+}
+
+/* Menu de nav */
+
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    list-style: none;
+    padding: 5px 15px;
+    font-family: "Chinese Rocks";
+    border: 1px solid white;
+    display: inline-block;
+    transition: background-color 0.3s ease-in;
+}
+
+.menu li a {
+    color: rgb(43, 41, 41);
+    text-decoration: none;
+    display: block;
+}
+.menu li:hover a {
+    color: black;
+}
+.menu li:hover {
+
+    background-color: var(--color-hover);
+    cursor: pointer;
+}
+/* Articulo */
+
+article {
+    background-image: url("images/textbox.png");
+    background-size: 100% 100%; /* estira para cubrir toda la caja */
+    background-repeat: no-repeat;
+    padding: 90px 65px; /* para que el texto no quede pegado al borde */
+    justify-content: center;
+    opacity: 90%;
+}
+h2{
+    font-family: "Chinese rocks";
+    color: #f368e0;
+    text-align: center;
+}
+h2:hover{
+    color: var(--color-hover);
+    cursor:pointer
+}
+h3{
+    text-align: center;
+    padding: 8px;
+}
+h3:hover{
+    color: var(--color-hover);
+    cursor:pointer
+}
+p{
+    font-family: "Faustina" ;
+    color: var(--color-texto);
+    text-align: center;
+    padding-bottom: 3px;
+}
+/* Modal poemas */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 2, 4, 0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.modal-overlay.activo {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal con scroll si el contenido no entra */
+.modal-contenido {
+    position: relative;
+    max-width: 580px;
+    width: 100%;
+    background: #0d0609;
+    border: 1px solid #4a1e30;
+    animation: slideUp 0.4s ease;
+}
+
+.modal-scroll {
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 50px 44px 44px;
+}
+/* Scrollbar gótico (Chrome/Edge/Safari) */
+.modal-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-scroll::-webkit-scrollbar-track {
+    background: #1a0810;
+}
+.modal-scroll::-webkit-scrollbar-thumb {
+    background: #4a1e30;
+    border-radius: 3px;
+}
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: #6b2040;
+}
+
+/* Scrollbar gótico (Firefox) */
+.modal-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #4a1e30 #1a0810;
+}
+/* Scrollbar gótico (Firefox) */
+.modal-contenido {
+    scrollbar-width: thin;
+    scrollbar-color: #4a1e30 #1a0810;
+}
+/* Esquinas decorativas */
+.modal-contenido::before,
+.modal-contenido::after,
+.corner-bl,
+.corner-tr {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-color: #8b2e50;
+    border-style: solid;
+}
+.modal-contenido::before { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+.modal-contenido::after  { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+.corner-bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
+.corner-tr { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
+
+/* Botón cerrar */
+.modal-cerrar {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #5a2535;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 2px 6px;
+}
+.modal-cerrar:hover { color: #c0406e; }
+
+/* Bordes con calavera */
+.skull-divider-img {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto 16px;
+    opacity: 0.85;
+}
+.skull-divider-bottom {
+    margin: 16px auto 0;
+    transform: scaleY(-1);
+}
+
+/* Título y texto */
+.modal-titulo {
+    font-family: 'Chinese Rocks', serif;
+    color: #c0406e;
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 4px;
+    margin: 0 0 20px;
+    font-weight: 400;
+}
+.modal-texto {
+    color: #c4a0b0;
+    font-family: 'Faustina', serif;
+    font-size: 15px;
+    line-height: 2;
+    text-align: center;
+}
+.modal-texto strong { color: #e04070; }
+.modal-texto em { color: #e8c0d0; font-style: italic; }
+
+
+/* Footer */
+footer {
+    background-color: #050505;
+    border-top: 1px solid ;
+    text-align: center;
+    padding: 25px;
+    color: var(--color-hover);
+    font-family: 'Chinese rocks', cursive;
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+    width: 100%;
+}
+/* Media queries (responsive design para celulares) */
+
+/* article y main */@media (max-width: 600px) {
+    article {
+        padding: 50px 20px;
+    }
+    main {
+        padding: 0 10px;
+    }
+}
+@media (max-width: 600px) {
+    #razones {
+        padding-top: 120px;
+    }
+}
+/* Modal (poemas) */ @media (max-width: 600px) {
+    .modal-scroll {
+        padding: 30px 20px;
+        max-height: 90vh;
+    }
+    .modal-titulo {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+    .modal-texto {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+    .skull-divider-img {
+        max-width: 180px;
+    }
+}
+/* Menu y nav */ @media (max-width: 600px) {
+    .menu ul {
+        display: flex;
+        flex-direction: column;
+    }
+    .menu li {
+        display: block;
+        width: 100%;
+    }
+}
