@@ -177,6 +177,9 @@ h2:hover{
 }
 h3{
     text-align: center;
+    font-family: "Chinese rocks";
+    letter-spacing: 5px;
+    font-size: 22px;
     padding: 8px;
 }
 h3:hover{
