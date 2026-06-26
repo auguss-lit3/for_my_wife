@@ -226,3 +226,18 @@ document.getElementById('cerrar-galeria').addEventListener('click', () => {
 modalGaleria.addEventListener('click', (e) => {
     if (e.target === modalGaleria) modalGaleria.classList.remove('activo');
 });
+
+/* Modal canciones */
+const modalCanciones = document.getElementById('modal-canciones');
+
+document.getElementById('canciones-trigger').addEventListener('click', () => {
+    modalCanciones.classList.add('activo');
+});
+
+document.getElementById('cerrar-canciones').addEventListener('click', () => {
+    modalCanciones.classList.remove('activo');
+});
+
+modalCanciones.addEventListener('click', (e) => {
+    if (e.target === modalCanciones) modalCanciones.classList.remove('activo');
+});

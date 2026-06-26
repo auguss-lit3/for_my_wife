@@ -178,6 +178,14 @@ p{
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* Spotify player */
+.spotify-player {
+    display: block;
+    border-radius: 12px;
+    margin-top: 16px;
+    border: 1px solid #4a1e30;
+}
+
 
 /* Modal con scroll si el contenido no entra */
 .modal-contenido {
@@ -387,6 +395,9 @@ footer {
         width: 34px;
         height: 34px;
         font-size: 1.1rem;
+    }
+    .spotify-player { /* Canciones para ella */
+        height: 280px;
     }
     .modal-scroll { /* Modal (poemas) */ 
         padding: 30px 20px;

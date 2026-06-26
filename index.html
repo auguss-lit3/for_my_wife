@@ -95,9 +95,34 @@
 
             <article id="canciones">
                 <img src="images/textbox.png" class="article-bg" alt="">
-                <h2>Canciones para ella</h2>
-                <p></p>
+                <h2 id="canciones-trigger">Canciones para ella</h2>
+                <p>Haz click para escuchar </p>
             </article>
+            <div class="modal-overlay" id="modal-canciones">
+                <div class="modal-contenido">
+                    <div class="corner-bl"></div>
+                    <div class="corner-tr"></div>
+                    <button class="modal-cerrar" id="cerrar-canciones">✕</button>
+
+                    <div class="modal-scroll">
+                        <img src="images/border.png" class="skull-divider-img" alt="">
+
+                        <iframe 
+                            src="https://www.youtube.com/playlist?list=PLFNbULOWGNi4"
+                            width="100%" 
+                            height="315"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            class="spotify-player">
+                        </iframe>
+
+                        <img src="images/border.png" class="skull-divider-img skull-divider-bottom" alt="">
+                    </div>
+                </div>
+            </div>
+
 
             <article id="galeria">
                 <img src="images/textbox.png" class="article-bg" alt="">
