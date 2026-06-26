@@ -37,21 +37,6 @@
                 <img src="images/textbox.png" class="article-bg" alt="">
                 <h2 id="razones-trigger">Razones por las que la amo</h2>
             </article>
-            <div class="modal-overlay" id="modal-razones">
-                <div class="modal-contenido">
-                    <div class="corner-bl"></div>
-                    <div class="corner-tr"></div>
-                    <button class="modal-cerrar" id="cerrar-razones">✕</button>
-
-                    <div class="modal-scroll">
-                        <img src="images/border.png" class="skull-divider-img" alt="">
-                        <h3 class="modal-titulo">Razones por las que la amo</h3>
-                        <p class="modal-texto" id="razones-texto"></p>
-                        <img src="images/border.png" class="skull-divider-img skull-divider-bottom" alt="">
-                    </div>
-                </div>
-            </div>
-
 
 
             <article id="poemas">
@@ -75,11 +60,52 @@
                         </div>
                     </div>
             </article>
+
+            <article id="canciones">
+                <img src="images/textbox.png" class="article-bg" alt="">
+                <h2 id="canciones-trigger">Canciones para ella</h2>
+                <p>Haz click para escuchar </p>
+            </article>
+
+
+            <article id="galeria">
+                <img src="images/textbox.png" class="article-bg" alt="">
+                <div id="galeria-trigger">
+                <h2>Fotos que amo</h2>
+                
+                    <p>Haz click para ver</p>
+                </div>
+            </article>
+
+        </section>
+    </main>
+    <footer>
+        <div class="border"></div>
+        <p>Te amo mucho mi vida, doy todo por vos </p>
+    </footer>
+    
+<!-- divs -->
+            <div class="modal-overlay" id="modal-razones">
+                <div class="modal-contenido">
+                    <div class="corner-bl"></div>
+                    <div class="corner-tr"></div>
+                    <button type="button" class="modal-cerrar" id="cerrar-razones">✕</button>
+
+                    <div class="modal-scroll">
+                        <img src="images/border.png" class="skull-divider-img" alt="">
+                        <h3 class="modal-titulo">Razones por las que la amo</h3>
+                        <p class="modal-texto" id="razones-texto"></p>
+                        <img src="images/border.png" class="skull-divider-img skull-divider-bottom" alt="">
+                    </div>
+                </div>
+            </div>
+
+
                 <div class="modal-overlay" id="modal">
                     <div class="modal-contenido">
                         <div class="corner-bl"></div>
                         <div class="corner-tr"></div>
-                        <button class="modal-cerrar" id="cerrar">✕</button>
+                        <button type="button" class="modal-cerrar" id="cerrar">✕</button>
 
                         <div class="modal-scroll">
                             <img src="images/border.png" class="skull-divider-img" alt="">
@@ -93,22 +119,17 @@
                 </div>
 
 
-            <article id="canciones">
-                <img src="images/textbox.png" class="article-bg" alt="">
-                <h2 id="canciones-trigger">Canciones para ella</h2>
-                <p>Haz click para escuchar </p>
-            </article>
             <div class="modal-overlay" id="modal-canciones">
                 <div class="modal-contenido">
                     <div class="corner-bl"></div>
                     <div class="corner-tr"></div>
-                    <button class="modal-cerrar" id="cerrar-canciones">✕</button>
+                    <button type="button" class="modal-cerrar" id="cerrar-canciones">✕</button>
 
                     <div class="modal-scroll">
                         <img src="images/border.png" class="skull-divider-img" alt="">
 
                         <iframe 
-                            src="https://www.youtube.com/playlist?list=PLFNbULOWGNi4"
+                            src="https://www.youtube.com/embed/videoseries?list=PLFNbULOWGNi4"
                             width="100%" 
                             height="315"
                             frameborder="0"
@@ -124,19 +145,11 @@
             </div>
 
 
-            <article id="galeria">
-                <img src="images/textbox.png" class="article-bg" alt="">
-                <div id="galeria-trigger">
-                <h2>Fotos que amo</h2>
-                
-                    <p>Haz click para ver</p>
-                </div>
-            </article>
             <div class="modal-overlay" id="modal-galeria">
                 <div class="modal-contenido">
                     <div class="corner-bl"></div>
                     <div class="corner-tr"></div>
-                    <button class="modal-cerrar" id="cerrar-galeria">✕</button>
+                    <button type="button" class="modal-cerrar" id="cerrar-galeria">✕</button>
 
                     <div class="modal-scroll">
                         <img src="images/border.png" class="skull-divider-img" alt="">
@@ -147,9 +160,9 @@
                         </div>
 
                         <div class="galeria-visor">
-                            <button class="galeria-flecha" id="galeria-anterior">&#8592;</button>
-                            <img src="" class="galeria-foto" id="galeria-foto" alt="">
-                            <button class="galeria-flecha" id="galeria-siguiente">&#8594;</button>
+                            <button type="button" class="galeria-flecha" id="galeria-anterior">&#8592;</button>
+                            <img src="" class="galeria-foto" id="galeria-foto" alt="Foto Juntos">
+                            <button type="button" class="galeria-flecha" id="galeria-siguiente">&#8594;</button>
                         </div>
 
                         <div class="galeria-contador" id="galeria-contador"></div>
@@ -158,16 +171,6 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <aside>
-    </aside>
-
-    <footer>
-        <div class="border"></div>
-        <p>Te amo mucho mi vida, doy todo por vos </p>
-    </footer>
-    
 </body>
 </html>

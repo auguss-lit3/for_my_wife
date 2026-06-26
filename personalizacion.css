@@ -35,7 +35,7 @@ main {
 body {
     background: #fd79a8 url('images/fondo.jpg') no-repeat center/cover fixed;
     color: white;
-    min-height: 100vh; 
+    min-height: 100dvh; 
     display: flex;
     flex-direction: column;
 }
@@ -122,6 +122,9 @@ article {
 }
 .letra-typewriter {
     transition: color 0.8s ease;
+}
+#razones-texto {
+    color: #f0a0c0;
 }
 h2{
     font-family: "Chinese rocks";
@@ -222,11 +225,7 @@ p{
     scrollbar-width: thin;
     scrollbar-color: #4a1e30 #1a0810;
 }
-/* Scrollbar gótico (Firefox) */
-.modal-contenido {
-    scrollbar-width: thin;
-    scrollbar-color: #4a1e30 #1a0810;
-}
+
 /* Esquinas decorativas */
 .modal-contenido::before,
 .modal-contenido::after,
@@ -377,10 +376,13 @@ footer {
         font-size: 0.95rem;
         letter-spacing: 1px;
     }
+        header {
+        padding-bottom: 8px;
+    }
     article { /* article y main */
         padding: 50px 20px;
     }
-    
+
     #razones {
         padding-top: 145px;
     }
