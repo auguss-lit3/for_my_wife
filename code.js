@@ -1,4 +1,3 @@
-/* Header */
 
 /* Header */
 const header = document.querySelector('header');
@@ -115,4 +114,50 @@ document.getElementById('cerrar').addEventListener('click', () => {
 
 modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.classList.remove('activo');
+});
+
+
+/* Galería de fotos */
+const fotos = [
+    { src: 'images/array_galeria/image_1.jpeg', fecha: '14 de Febrero de 2024', mensaje: 'Nuestro segundo San valentin Juntos' },
+    
+];
+
+let indiceActual = 0;
+
+const modalGaleria = document.getElementById('modal-galeria');
+
+function mostrarFoto(indice) {
+    const foto = fotos[indice];
+    document.getElementById('galeria-foto').src = foto.src;
+    document.getElementById('galeria-fecha').textContent = foto.fecha;
+    document.getElementById('galeria-mensaje').textContent = foto.mensaje;
+    document.getElementById('galeria-contador').textContent = `${indice + 1} / ${fotos.length}`;
+}
+
+// Abrir modal
+document.getElementById('galeria-trigger').addEventListener('click', () => {
+    indiceActual = 0;
+    mostrarFoto(indiceActual);
+    modalGaleria.classList.add('activo');
+});
+
+// Flechas
+document.getElementById('galeria-anterior').addEventListener('click', () => {
+    indiceActual = (indiceActual - 1 + fotos.length) % fotos.length;
+    mostrarFoto(indiceActual);
+});
+
+document.getElementById('galeria-siguiente').addEventListener('click', () => {
+    indiceActual = (indiceActual + 1) % fotos.length;
+    mostrarFoto(indiceActual);
+});
+
+// Cerrar
+document.getElementById('cerrar-galeria').addEventListener('click', () => {
+    modalGaleria.classList.remove('activo');
+});
+
+modalGaleria.addEventListener('click', (e) => {
+    if (e.target === modalGaleria) modalGaleria.classList.remove('activo');
 });

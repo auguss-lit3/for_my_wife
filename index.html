@@ -11,6 +11,7 @@
     <script src="code.js" defer></script>
 </head>
 <body>
+    
     <header>
     <div id="contador">
         <span id="contador-dias">0</span> días,
@@ -24,12 +25,14 @@
                 <li><a href="#razones">Algunas razones por las que la amo</a></li>
                 <li><a href="#poemas">Poemas para ella</a></li>
                 <li><a href="#canciones">Canciones para ella</a></li>
+                <li><a href="#galeria">Fotos que amo</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section>
+            
             <article id="razones">
                 <img src="images/textbox.png" class="article-bg" alt="">
                 <h2>Razones por las que la amo</h2>
@@ -73,11 +76,48 @@
                         </div>
                     </div>
                 </div>
+
+
             <article id="canciones">
                 <img src="images/textbox.png" class="article-bg" alt="">
                 <h2>Canciones para ella</h2>
                 <p></p>
             </article>
+
+            <article id="galeria">
+                <img src="images/textbox.png" class="article-bg" alt="">
+                <div id="galeria-trigger">
+                <h2>Fotos que amo</h2>
+                
+                    <p>Haz click para ver</p>
+                </div>
+            </article>
+            <div class="modal-overlay" id="modal-galeria">
+                <div class="modal-contenido">
+                    <div class="corner-bl"></div>
+                    <div class="corner-tr"></div>
+                    <button class="modal-cerrar" id="cerrar-galeria">✕</button>
+
+                    <div class="modal-scroll">
+                        <img src="images/border.png" class="skull-divider-img" alt="">
+
+                        <div class="galeria-info">
+                            <span class="galeria-fecha" id="galeria-fecha"></span>
+                            <span class="galeria-mensaje" id="galeria-mensaje"></span>
+                        </div>
+
+                        <div class="galeria-visor">
+                            <button class="galeria-flecha" id="galeria-anterior">&#8592;</button>
+                            <img src="" class="galeria-foto" id="galeria-foto" alt="">
+                            <button class="galeria-flecha" id="galeria-siguiente">&#8594;</button>
+                        </div>
+
+                        <div class="galeria-contador" id="galeria-contador"></div>
+
+                        <img src="images/border.png" class="skull-divider-img skull-divider-bottom" alt="">
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
