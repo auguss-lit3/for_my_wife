@@ -1,6 +1,9 @@
 
+
 /* Header */
 const header = document.querySelector('header');
+const menuToggle = document.getElementById('menu-toggle');
+const menuNav = document.getElementById('menu-nav');
 
 function esMobile() {
     return window.innerWidth <= 600;
@@ -20,6 +23,21 @@ if (!esMobile()) {
 } else {
     header.style.top = '0';
 }
+
+/* Hamburguesa — solo actúa en mobile */
+menuToggle.addEventListener('click', () => {
+    menuNav.classList.toggle('activo');
+    menuToggle.textContent = menuNav.classList.contains('activo') ? '✕' : '☰';
+});
+
+/* Cerrar menú al hacer click en un link */
+menuNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuNav.classList.remove('activo');
+        menuToggle.textContent = '☰';
+    });
+});
+
 
 /* Contador de días juntos */
 const fechaInicio = new Date('2023-07-03T00:00:00');
@@ -43,8 +61,7 @@ actualizarContador(); // ejecuta una vez al cargar sin esperar 1 segundo
 setInterval(actualizarContador, 1000); // después actualiza cada segundo
 
 /* Modal razones */
-/* Modal razones */
-const textoRazones = `Es una persona hermosa en todos los sentidos, amable, valiente, adoro su pelo marroncito hermoso, su cara tan linda, sus cachetes tan tiernos, su risa que ella dice que aveces es molesta pero que a mi me encanta, sus chistes boludos, sus sueños, las historias que crea en su cerebro tan hermoso, su cuerpo que me vuelve loco como nadie, sus ojos color cafe que al mirarme me dan ganas de vivir, en fin, nunca se me van a acabar las razones para amarte mi amor.`;
+const textoRazones = `Es una persona hermosa en todos los sentidos, amable, valiente, adoro su pelo marroncito hermoso, su cara tan linda, sus cachetes tan tiernos, su risa que ella dice que aveces es molesta pero que a mi me encanta, sus chistes boludos, sus sueños, las historias que crea en su cerebro tan hermoso, sus ojos color cafe que al mirarme me dan ganas de vivir, sus palabras de aliento que me dan la fuerza necesaria para seguir adelante sin importar que, su cuerpo tan sexy que me prende como si fuera la primera vez, mi amor por ella que renace cada dia, nuestro futuro el cual es bastante bonito de imaginar, sus gustos por las cosas que aunque diferamos aveces no es impedimento para amarla mas y mas, en fin, nunca se me van a acabar las razones para amarte mi amor, mi esposa, mi mujer ♥♥♥`;
 
 const modalRazones = document.getElementById('modal-razones');
 let intervaloTypewriter = null; // guardamos referencia para poder cancelarlo
@@ -184,8 +201,33 @@ modal.addEventListener('click', (e) => {
 
 /* Galería de fotos */
 const fotos = [
-    { src: 'images/array_galeria/image_1.jpeg', fecha: '14 de Febrero de 2024', mensaje: 'Nuestro segundo San valentin Juntos' },
-    
+    { src: 'images/array_galeria/image_initial.jpeg', fecha: '3 de Octubre de 2022', mensaje: 'Empezando nuestra historia como amigos' },
+    { src: 'images/array_galeria/image_1.jpeg', fecha: '29 de Marzo de 2023', mensaje: 'Aun amigos pero enamorados uno del otro' },
+    { src: 'images/array_galeria/image_2.jpeg', fecha: '3 de Julio de 2023', mensaje: 'Esa noche que empezamos a escribir nuestra historia definitivamente ♥♥' },
+    { src: 'images/array_galeria/image_3.jpeg', fecha: '21 de Agosto de 2023', mensaje: 'Nuestra primera cita oficial, pasandola en la plaza de Escobar' },
+    { src: 'images/array_galeria/image_4.jpeg', fecha: '19 de Septiembre de 2023', mensaje: 'Volviendo cansados de un dia de estudio' },
+    { src: 'images/array_galeria/image_5.jpeg', fecha: '27 de Septiembre de 2023', mensaje: 'Boludeando despues de salir de estudiar' },
+    { src: 'images/array_galeria/image_6.jpeg', fecha: '4 de Octubre de 2023', mensaje: 'Hermosa tarde paseando cerca de mi casa' },
+    { src: 'images/array_galeria/image_7.jpeg', fecha: '4 de Noviembre de 2023', mensaje: 'Celebrando nuestros 4 meses paseando por Pilar' },
+    { src: 'images/array_galeria/image_8.jpeg', fecha: '3 de Enero de 2024', mensaje: 'Celebrando nuestros 6 meses en Escobar' },
+    { src: 'images/array_galeria/image_9.jpeg', fecha: '21 de Enero de 2024', mensaje: 'Festejando tus 17 en la casa de un amigo' },
+    { src: 'images/array_galeria/image_10.jpeg', fecha: '14 de Febrero de 2024', mensaje: 'Nuestro primer San valentin juntos ♥♥' },
+    { src: 'images/array_galeria/image_11.jpeg', fecha: '31 de Mayo de 2024', mensaje: 'Boludeando en hora libre' },
+    { src: 'images/array_galeria/image_12.jpeg', fecha: '17 de Junio de 2024', mensaje: 'Yendo a ver Intensamente 2 despues de un Starbucks' },
+    { src: 'images/array_galeria/image_13.jpeg', fecha: '3 de Julio de 2024', mensaje: 'Nuestro compromiso ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥' },
+    { src: 'images/array_galeria/image_14.jpeg', fecha: '16 de Julio de 2024', mensaje: 'Salida a un evento de Escobar' },
+    { src: 'images/array_galeria/image_15.jpeg', fecha: '4 de Octubre de 2024', mensaje: 'Salida a la fiesta de la flor en Escobar celebrando nuestro mesiversario n°15' },
+    { src: 'images/array_galeria/image_16.jpeg', fecha: '5 de Febrero de 2025', mensaje: 'Esperando el colectivo para que me vuelva luego de pasar nuestro mesiversario n°19' },
+    { src: 'images/array_galeria/image_17.jpeg', fecha: '14 de Febrero de 2025', mensaje: 'Nuestro segundo San valentin juntos ♥♥♥' },
+    { src: 'images/array_galeria/image_18.jpeg', fecha: '27 de Febrero de 2025', mensaje: 'Cafe luego de discusion jeje' },
+    { src: 'images/array_galeria/image_19.jpeg', fecha: '24 de Marzo de 2025', mensaje: 'Fotitos luego de una juntada con amigos en la pileta' },
+    { src: 'images/array_galeria/image_20.jpeg', fecha: '3 de Julio de 2025', mensaje: 'Festejando nuestro 2do aniversario y preparandonos pa luego ir a la escuela ♥♥♥' },
+    { src: 'images/array_galeria/image_21.jpeg', fecha: '26 de Julio de 2025', mensaje: 'Tomando un cafecito en el Mcdonalds luego de pasar el dia en Escobar' },
+    { src: 'images/array_galeria/image_22.jpeg', fecha: '31 de Agosto de 2025', mensaje: 'Festejando el cumple de un amigo' },
+    { src: 'images/array_galeria/image_23.jpeg', fecha: '15 de Diciembre de 2025', mensaje: 'Terminando una etapa, graduandonos juntos ♥♥♥♥♥♥♥♥♥' },
+    { src: 'images/array_galeria/image_24.jpeg', fecha: '11 de Enero de 2026', mensaje: 'Yendo a pescar con tu familia al Parana' },
+    { src: 'images/array_galeria/image_25.jpeg', fecha: '25 de Enero de 2026', mensaje: 'Conociendo a toda mi familia en el cumpleaños de un familiar' },
+    { src: 'images/array_galeria/image_26.jpeg', fecha: '24 de Mayo de 2026', mensaje: 'Tomando un cafecito en una cafeteria de arte por Escobar' },
 ];
 
 let indiceActual = 0;

@@ -26,7 +26,7 @@ html {
     box-sizing: border-box;
 }
 main {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
     flex: 1;
@@ -48,6 +48,35 @@ header {
     width: 100%;
     transition: top 0.4s ease-out;
     z-index: 1000;
+}
+#header-top {
+    position: relative;
+    padding: 8px 16px 4px;
+}
+
+/* Botón hamburguesa — solo visible en mobile */
+#menu-toggle {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #c0406e;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s;
+}
+
+#menu-toggle:hover {
+    color: var(--color-hover);
+}
+
+/* Menú — en desktop siempre visible */
+#menu-nav {
+    display: block;
 }
 
 #contador {
@@ -110,7 +139,12 @@ article {
     opacity: 90%;
     overflow: hidden;  
 }
-
+article::after {
+    content: '';
+    display: block;
+    width: 600px; /* ajustá este número hasta que quede como querés */
+    height: 0;
+}
 .article-bg {
     position: absolute;  
     inset: 0;            
@@ -181,12 +215,38 @@ p{
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
-/* Spotify player */
-.spotify-player {
+/* Music player */
+.youtube-link-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.youtube-desc {
+    color: #c4a0b0;
+    font-family: 'Faustina', serif;
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.youtube-link {
     display: block;
-    border-radius: 12px;
-    margin-top: 16px;
+    font-family: 'Chinese Rocks', serif;
+    color: #c0406e;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    text-decoration: none;
+    padding: 14px 28px;
     border: 1px solid #4a1e30;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.youtube-link:hover {
+    background-color: #4a1e30;
+    color: #e8c0d0;
 }
 
 
@@ -377,14 +437,31 @@ footer {
         letter-spacing: 1px;
     }
         header {
-        padding-bottom: 8px;
+        padding-bottom: 2px;
+    }
+    /* Mostrar botón hamburguesa */
+    #menu-toggle {
+        display: block;
+    }
+    /* Menú oculto por defecto en mobile */
+    #menu-nav {
+        display: none;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    /* Cuando tiene la clase activo, se muestra */
+    #menu-nav.activo {
+        display: block;
+        animation: fadeIn 0.3s ease;
     }
     article { /* article y main */
-        padding: 50px 20px;
+        padding: 50px 60px;
     }
-
+    article::after {
+        display: none;
+    }
     #razones {
-        padding-top: 145px;
+        padding-top: 90px;
     }
     main {
         padding: 0 10px;
@@ -397,9 +474,6 @@ footer {
         width: 34px;
         height: 34px;
         font-size: 1.1rem;
-    }
-    .spotify-player { /* Canciones para ella */
-        height: 280px;
     }
     .modal-scroll { /* Modal (poemas) */ 
         padding: 30px 20px;
