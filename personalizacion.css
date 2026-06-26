@@ -50,16 +50,34 @@ header {
     z-index: 1000;
 }
 
-header h1 {
+#contador {
     font-family: 'Chinese Rocks', serif;
     color: grey;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    padding: 8px 0 2px;
     transition: color 0.3s ease-in;
 }
 
-header h1:hover {
+#contador:hover {
     color: var(--color-hover);
 }
 
+#contador-label {
+    font-family: 'Faustina', serif;
+    color: #5a5a5a;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+}
+
+/* Mobile: contador más chico para que entre en el header */
+@media (max-width: 600px) {
+    #contador {
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+    }
+}
 /* Menu de nav */
 
 

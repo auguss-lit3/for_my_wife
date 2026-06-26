@@ -1,5 +1,6 @@
 /* Header */
 
+/* Header */
 const header = document.querySelector('header');
 
 function esMobile() {
@@ -14,13 +15,33 @@ if (!esMobile()) {
             header.style.top = '-100px';
         }
     });
-
     header.addEventListener('mouseleave', () => {
         header.style.top = '-100px';
     });
 } else {
     header.style.top = '0';
 }
+
+/* Contador de días juntos */
+const fechaInicio = new Date('2023-07-03T00:00:00');
+
+function actualizarContador() {
+    const ahora = new Date();
+    const diferencia = ahora - fechaInicio; // milisegundos totales
+
+    const dias    = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas   = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    document.getElementById('contador-dias').textContent = dias;
+    document.getElementById('contador-horas').textContent = horas;
+    document.getElementById('contador-minutos').textContent = minutos;
+    document.getElementById('contador-segundos').textContent = segundos;
+}
+
+actualizarContador(); // ejecuta una vez al cargar sin esperar 1 segundo
+setInterval(actualizarContador, 1000); // después actualiza cada segundo
 
 /* Poemas {section/article} */
 const poemas = {
