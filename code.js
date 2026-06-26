@@ -1,4 +1,31 @@
 
+/* Pantalla de bienvenida */
+const bienvenida = document.getElementById('bienvenida');
+const bienvenidaVideo = document.getElementById('bienvenida-video');
+
+bienvenidaVideo.addEventListener('canplaythrough', () => {
+    bienvenidaVideo.play().catch(() => {
+        bienvenida.classList.add('fadeout');
+        setTimeout(() => bienvenida.remove(), 1200);
+    });
+}, { once: true }); // once: true significa que el listener se elimina después de ejecutarse una vez
+
+bienvenidaVideo.addEventListener('ended', () => {
+    bienvenida.classList.add('fadeout');
+    setTimeout(() => bienvenida.remove(), 1200);
+});
+
+setTimeout(() => {
+    if (document.getElementById('bienvenida')) {
+        bienvenida.classList.add('fadeout');
+        setTimeout(() => bienvenida.remove(), 1200);
+    }
+}, 70000); // 70 segundos — suficiente para que termine el video de 1 minuto
+
+
+
+
+
 
 /* Header */
 const header = document.querySelector('header');

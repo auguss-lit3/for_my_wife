@@ -428,6 +428,59 @@ footer {
     font-size: 1.2rem;
     width: 100%;
 }
+
+/* Pantalla de bienvenida */
+#bienvenida {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1.2s ease;
+}
+
+#bienvenida.fadeout {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#bienvenida-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#bienvenida-texto {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    animation: bienvenidaFade 2s ease forwards, bienvenidaDesaparecer 3s ease 10s forwards;
+}
+
+#bienvenida-texto p {
+    font-family: 'Chinese Rocks', serif;
+    color: #c0406e;
+    font-size: 2.5rem;
+    letter-spacing: 6px;
+    text-shadow: 0 0 20px rgba(192, 64, 110, 0.8);
+    padding-bottom: 0;
+    color: #c0406e;
+}
+
+@keyframes bienvenidaFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bienvenidaDesaparecer {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+
 /* Media queries (responsive design para celulares) */
 
 @media (max-width: 600px) {
@@ -497,5 +550,9 @@ footer {
     .menu li {
         display: block;
         width: 100%;
+    }
+    #bienvenida-texto p {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
     }
 }
