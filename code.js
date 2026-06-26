@@ -42,6 +42,71 @@ function actualizarContador() {
 actualizarContador(); // ejecuta una vez al cargar sin esperar 1 segundo
 setInterval(actualizarContador, 1000); // después actualiza cada segundo
 
+/* Modal razones */
+/* Modal razones */
+const textoRazones = `Es una persona hermosa en todos los sentidos, amable, valiente, adoro su pelo marroncito hermoso, su cara tan linda, sus cachetes tan tiernos, su risa que ella dice que aveces es molesta pero que a mi me encanta, sus chistes boludos, sus sueños, las historias que crea en su cerebro tan hermoso, su cuerpo que me vuelve loco como nadie, sus ojos color cafe que al mirarme me dan ganas de vivir, en fin, nunca se me van a acabar las razones para amarte mi amor.`;
+
+const modalRazones = document.getElementById('modal-razones');
+let intervaloTypewriter = null; // guardamos referencia para poder cancelarlo
+
+function interpolarColor(progreso) {
+    // inicial: #f0a0c0 = rgb(240, 160, 192) — rosa claro
+    // final:   #e0004a = rgb(224,   0,  74) — rosa fuerte
+    const r = Math.round(240 + (224 - 240) * progreso);
+    const g = Math.round(160 + (0   - 160) * progreso);
+    const b = Math.round(192 + (74  - 192) * progreso);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+function typewriter(elemento, texto) {
+    if (intervaloTypewriter) clearInterval(intervaloTypewriter);
+
+    elemento.innerHTML = '';
+    let i = 0;
+
+    intervaloTypewriter = setInterval(() => {
+        const progreso = i / texto.length;
+        const colorFinal = interpolarColor(progreso);
+        const char = texto[i];
+
+        if (char === '\n') {
+            elemento.appendChild(document.createElement('br'));
+        } else {
+            const span = document.createElement('span');
+            span.classList.add('letra-typewriter');
+            span.textContent = char;
+            span.style.color = '#f0a0c0'; // nace rosa claro
+
+            elemento.appendChild(span);
+
+            // un frame después cambia al color final — dispara la transición CSS
+            requestAnimationFrame(() => {
+                span.style.color = colorFinal;
+            });
+        }
+
+        i++;
+        if (i >= texto.length) clearInterval(intervaloTypewriter);
+    }, 45);
+}
+document.getElementById('razones-trigger').addEventListener('click', () => {
+    modalRazones.classList.add('activo');
+    const elemento = document.getElementById('razones-texto');
+    typewriter(elemento, textoRazones);
+});
+
+document.getElementById('cerrar-razones').addEventListener('click', () => {
+    modalRazones.classList.remove('activo');
+    if (intervaloTypewriter) clearInterval(intervaloTypewriter);
+});
+
+modalRazones.addEventListener('click', (e) => {
+    if (e.target === modalRazones) {
+        modalRazones.classList.remove('activo');
+        if (intervaloTypewriter) clearInterval(intervaloTypewriter);
+    }
+});
+
 /* Poemas {section/article} */
 const poemas = {
     1: {
