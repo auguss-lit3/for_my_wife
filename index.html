@@ -19,6 +19,10 @@
     <div id="bienvenida-texto">
         <p>Donde todo comenzó</p>
     </div>
+    <div id="bienvenida-controles">
+        <button type="button" id="bienvenida-volumen">🔇</button>
+        <button type="button" id="bienvenida-skip">Saltar ↩</button>
+    </div>
 </div>
     <header>
         <div id="header-top">
@@ -91,11 +95,39 @@
 
         </section>
     </main>
-    <footer>
-        <div class="border"></div>
-        <p>Te amo mucho mi vida, doy todo por vos </p>
-    </footer>
-    
+<footer>
+    <div class="border"></div>
+    <p>Te amo mucho mi vida, doy todo por vos</p>
+    <button type="button" id="promesa-trigger" aria-label="Secreto">♥</button>
+</footer>
+
+<!-- Modal promesa — fuera del footer, antes de cerrar body -->
+<div class="modal-overlay" id="modal-promesa">
+    <div class="modal-contenido">
+        <div class="corner-bl"></div>
+        <div class="corner-tr"></div>
+        <button type="button" class="modal-cerrar" id="cerrar-promesa">✕</button>
+
+        <div class="modal-scroll">
+            <img src="images/border.png" class="skull-divider-img" alt="">
+
+            <div id="promesa-input-contenedor">
+                <p id="promesa-instruccion">Ingresá nuestra fecha especial</p>
+                <input type="date" id="promesa-fecha">
+                <button type="button" id="promesa-confirmar">Confirmar</button>
+                <p id="promesa-error"></p>
+            </div>
+
+            <div id="promesa-texto-contenedor" style="display:none">
+                <h3 class="modal-titulo">Mi promesa</h3>
+                <p class="modal-texto" id="promesa-texto"></p>
+            </div>
+
+            <img src="images/border.png" class="skull-divider-img skull-divider-bottom" alt="">
+        </div>
+    </div>
+</div>
+
 <!-- divs -->
             <div class="modal-overlay" id="modal-razones">
                 <div class="modal-contenido">

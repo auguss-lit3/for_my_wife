@@ -431,7 +431,80 @@ footer {
     font-size: 1.2rem;
     width: 100%;
 }
+/* Promesa footer */
+#promesa-trigger {
+    background: none;
+    border: none;
+    color: #4a1e30;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+#promesa-trigger:hover {
+    color: #c0406e;
+}
+
+/* Input de fecha */
+#promesa-input-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+}
+
+#promesa-instruccion {
+    color: #c4a0b0;
+    font-family: 'Faustina', serif;
+    font-style: italic;
+    padding-bottom: 0;
+}
+
+#promesa-fecha {
+    background: #1a0810;
+    border: 1px solid #4a1e30;
+    color: #c4a0b0;
+    font-family: 'Faustina', serif;
+    font-size: 1rem;
+    padding: 8px 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+#promesa-fecha:focus {
+    border-color: #c0406e;
+}
+
+#promesa-confirmar {
+    background: none;
+    border: 1px solid #4a1e30;
+    color: #c0406e;
+    font-family: 'Chinese Rocks', serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#promesa-confirmar:hover {
+    background-color: #4a1e30;
+    color: #e8c0d0;
+}
+
+#promesa-error {
+    color: #e04070;
+    font-family: 'Faustina', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    padding-bottom: 0;
+    min-height: 20px;
+}
 /* Pantalla de bienvenida */
 #bienvenida {
     position: fixed;
@@ -482,7 +555,39 @@ footer {
     from { opacity: 1; }
     to   { opacity: 0; }
 }
+#bienvenida-controles {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 2;
+}
 
+#bienvenida-volumen,
+#bienvenida-skip {
+    background: rgba(13, 6, 9, 0.6);
+    border: 1px solid #4a1e30;
+    color: #c4a0b0;
+    font-family: 'Faustina', serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#bienvenida-volumen {
+    font-size: 1.1rem;
+}
+
+#bienvenida-volumen:hover,
+#bienvenida-skip:hover {
+    background-color: #4a1e30;
+    color: #e8c0d0;
+}
 
 /* Media queries (responsive design para celulares) */
 

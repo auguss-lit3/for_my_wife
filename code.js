@@ -2,27 +2,33 @@
 /* Pantalla de bienvenida */
 const bienvenida = document.getElementById('bienvenida');
 const bienvenidaVideo = document.getElementById('bienvenida-video');
+const btnVolumen = document.getElementById('bienvenida-volumen');
+const btnSkip = document.getElementById('bienvenida-skip');
 
-bienvenidaVideo.addEventListener('canplaythrough', () => {
-    bienvenidaVideo.play().catch(() => {
-        bienvenida.classList.add('fadeout');
-        setTimeout(() => bienvenida.remove(), 1200);
-    });
-}, { once: true }); // once: true significa que el listener se elimina después de ejecutarse una vez
-
-bienvenidaVideo.addEventListener('ended', () => {
+function cerrarBienvenida() {
     bienvenida.classList.add('fadeout');
     setTimeout(() => bienvenida.remove(), 1200);
+}
+
+bienvenidaVideo.addEventListener('canplaythrough', () => {
+    bienvenidaVideo.play().catch(() => cerrarBienvenida());
+}, { once: true });
+
+bienvenidaVideo.addEventListener('ended', () => cerrarBienvenida());
+
+// Skip
+btnSkip.addEventListener('click', () => cerrarBienvenida());
+
+// Volumen — toggle entre muted y con sonido
+btnVolumen.addEventListener('click', () => {
+    bienvenidaVideo.muted = !bienvenidaVideo.muted;
+    btnVolumen.textContent = bienvenidaVideo.muted ? '🔇' : '🔊';
 });
 
+// Fallback por si el video no termina
 setTimeout(() => {
-    if (document.getElementById('bienvenida')) {
-        bienvenida.classList.add('fadeout');
-        setTimeout(() => bienvenida.remove(), 1200);
-    }
-}, 70000); // 70 segundos — suficiente para que termine el video de 1 minuto
-
-
+    if (document.getElementById('bienvenida')) cerrarBienvenida();
+}, 70000);
 
 
 
@@ -228,7 +234,7 @@ modal.addEventListener('click', (e) => {
 
 /* Galería de fotos */
 const fotos = [
-    { src: 'images/array_galeria/image_initial.jpeg', fecha: '3 de Octubre de 2022', mensaje: 'Empezando nuestra historia como amigos' },
+    { src: 'images/array_galeria/image_initial.jpeg', fecha: '3 de Octubre de 2022', mensaje: 'Empezando nuestra historia como amigos cercanos' },
     { src: 'images/array_galeria/image_1.jpeg', fecha: '29 de Marzo de 2023', mensaje: 'Aun amigos pero enamorados uno del otro' },
     { src: 'images/array_galeria/image_2.jpeg', fecha: '3 de Julio de 2023', mensaje: 'Esa noche que empezamos a escribir nuestra historia definitivamente ♥♥' },
     { src: 'images/array_galeria/image_3.jpeg', fecha: '21 de Agosto de 2023', mensaje: 'Nuestra primera cita oficial, pasandola en la plaza de Escobar' },
@@ -309,4 +315,73 @@ document.getElementById('cerrar-canciones').addEventListener('click', () => {
 
 modalCanciones.addEventListener('click', (e) => {
     if (e.target === modalCanciones) modalCanciones.classList.remove('activo');
+});
+
+
+/* Modal promesa */
+const modalPromesa = document.getElementById('modal-promesa');
+const promesaTexto = `/* TU PROMESA ACÁ */`;
+
+let intervaloPromesa = null;
+
+function typewriterPromesa(elemento, texto) {
+    if (intervaloPromesa) clearInterval(intervaloPromesa);
+    elemento.innerHTML = '';
+    let i = 0;
+
+    intervaloPromesa = setInterval(() => {
+        const progreso = i / texto.length;
+        const colorFinal = interpolarColor(progreso);
+        const char = texto[i];
+
+        if (char === '\n') {
+            elemento.appendChild(document.createElement('br'));
+        } else {
+            const span = document.createElement('span');
+            span.classList.add('letra-typewriter');
+            span.textContent = char;
+            span.style.color = '#f0a0c0';
+            elemento.appendChild(span);
+            requestAnimationFrame(() => { span.style.color = colorFinal; });
+        }
+
+        i++;
+        if (i >= texto.length) clearInterval(intervaloPromesa);
+    }, 30);
+}
+
+document.getElementById('promesa-trigger').addEventListener('click', () => {
+    // resetear estado al abrir
+    document.getElementById('promesa-input-contenedor').style.display = 'flex';
+    document.getElementById('promesa-texto-contenedor').style.display = 'none';
+    document.getElementById('promesa-error').textContent = '';
+    document.getElementById('promesa-fecha').value = '';
+    modalPromesa.classList.add('activo');
+});
+
+document.getElementById('promesa-confirmar').addEventListener('click', () => {
+    const fechaIngresada = document.getElementById('promesa-fecha').value;
+    // el input date devuelve formato YYYY-MM-DD
+    const esAniversario = fechaIngresada === '2023-07-03';
+
+    if (esAniversario) {
+        document.getElementById('promesa-input-contenedor').style.display = 'none';
+        document.getElementById('promesa-texto-contenedor').style.display = 'block';
+        const elemento = document.getElementById('promesa-texto');
+        typewriterPromesa(elemento, promesaTexto);
+    } else {
+        document.getElementById('promesa-error').textContent = 'Esa no es la fecha correcta...';
+    }
+});
+
+document.getElementById('cerrar-promesa').addEventListener('click', () => {
+    modalPromesa.classList.remove('activo');
+    if (intervaloPromesa) clearInterval(intervaloPromesa);
+});
+
+modalPromesa.addEventListener('click', (e) => {
+    if (e.target === modalPromesa) {
+        modalPromesa.classList.remove('activo');
+        if (intervaloPromesa) clearInterval(intervaloPromesa);
+    }
 });
