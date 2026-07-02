@@ -42,6 +42,7 @@
                 <li><a href="#poemas">Poemas para ella</a></li>
                 <li><a href="#canciones">Canciones para ella</a></li>
                 <li><a href="#galeria">Fotos que amo</a></li>
+                <li><a href="#lugares">Lugares que amamos</a></li>
             </ul>
         </nav>
     </header>
@@ -84,6 +85,15 @@
             </article>
 
 
+            <article id="lugares">
+                <img src="images/textbox.png" class="article-bg" alt="">
+                <h2 id="lugares-trigger">Nuestros lugares</h2>
+                <p>Haz click para ver</p>
+            </article>
+
+
+
+            
             <article id="galeria">
                 <img src="images/textbox.png" class="article-bg" alt="">
                 <div id="galeria-trigger">
@@ -129,6 +139,57 @@
 </div>
 
 <!-- divs -->
+<div class="modal-overlay" id="modal-lugares">
+    <div class="modal-lugares-grid-contenedor">
+        <button type="button" class="modal-cerrar" id="cerrar-lugares">✕</button>
+        <h3 class="modal-titulo">Nuestros lugares</h3>
+                <div class="lugares-grid">
+                    <div class="lugar-card" data-lugar="0">
+                        <img src="images/images_places/escuela.jpg" class="lugar-foto" alt="Escuela">
+                        <div class="lugar-info">
+                            <h3 class="lugar-nombre">Escuela</h3>
+                            <p class="lugar-descripcion">Donde nos conocimos</p>
+                        </div>
+                    </div>
+
+                    <div class="lugar-card" data-lugar="1">
+                        <img src="images/images_places/reloj.jpg" class="lugar-foto" alt="Reloj">
+                        <div class="lugar-info">
+                            <h3 class="lugar-nombre">Noche</h3>
+                            <p class="lugar-descripcion">Donde fue nuestro primer beso</p>
+                        </div>
+                    </div>
+
+                    <div class="lugar-card" data-lugar="2">
+                        <img src="images/images_places/lugar_de_amor.png" class="lugar-foto" alt="Amor">
+                        <div class="lugar-info">
+                            <h3 class="lugar-nombre">Lugarcito</h3>
+                            <p class="lugar-descripcion">Donde nos comiamos la boca por las noches jeje</p>
+                        </div>
+                    </div>
+
+                    <div class="lugar-card" data-lugar="3">
+                        <img src="images/images_places/casamiento.png" class="lugar-foto" alt="Amor_2">
+                        <div class="lugar-info">
+                            <h3 class="lugar-nombre">Nuestro casamiento</h3>
+                            <p class="lugar-descripcion">Consolidacion de amor puro</p>
+                        </div>
+                    </div>
+
+                    <div class="lugar-card" data-lugar="4">
+                        <img src="images/images_places/comida.png" class="lugar-foto" alt="Comidita">
+                        <div class="lugar-info">
+                            <h3 class="lugar-nombre">Nuestro restaurante favorito</h3>
+                            <p class="lugar-descripcion">Riquisimos y baratos sanguches (Le hacia publicidad ah)</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
             <div class="modal-overlay" id="modal-razones">
                 <div class="modal-contenido">
                     <div class="corner-bl"></div>
@@ -213,6 +274,22 @@
                 </div>
             </div>
 
+        <div class="modal-overlay" id="modal-lugar-detalle">
+            <div class="modal-contenido">
+                <div class="corner-bl"></div>
+                <div class="corner-tr"></div>
+                <button type="button" class="modal-cerrar" id="cerrar-lugar-detalle">✕</button>
+
+                <div class="modal-scroll">
+                    <img src="images/border.png" class="skull-divider-img" alt="">
+                    <h3 class="modal-titulo" id="lugar-titulo"></h3>
+                    <img src="" class="lugar-foto-modal" id="lugar-foto-modal" alt="">
+                    <p class="modal-texto" id="lugar-descripcion-modal"></p>
+                    <iframe id="lugar-mapa" class="lugar-mapa" src="" allowfullscreen loading="lazy"></iframe>
+                    <img src="images/border.png" class="skull-divider-img skull-divider-bottom" alt="">
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>

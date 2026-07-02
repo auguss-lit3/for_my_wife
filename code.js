@@ -320,7 +320,7 @@ modalCanciones.addEventListener('click', (e) => {
 
 /* Modal promesa */
 const modalPromesa = document.getElementById('modal-promesa');
-const promesaTexto = `/* TU PROMESA ACÁ */`;
+const promesaTexto = `Prometo dar todo de mi en esta relacion, mi paciencia, mi tiempo, mi esfuerzo, mi amor, mi comprension, mi dulzura, mis miedos, mis inseguridades, mis deseos, mi futuro, mi vida entera en ella, ya que lo que mas deseo es que lo nuestro funcione y sea lo mas bonito del universo, no porque quiera que otras personas lo vean (me vale una mierda la opinion de los otros), si no porque te QUIERO, te AMO, te ADORO, te DESEO, te NECESITO, por si no te quedo claro luego de hacerte una pagina web entera.`;
 
 let intervaloPromesa = null;
 
@@ -383,5 +383,84 @@ modalPromesa.addEventListener('click', (e) => {
     if (e.target === modalPromesa) {
         modalPromesa.classList.remove('activo');
         if (intervaloPromesa) clearInterval(intervaloPromesa);
+    }
+});
+
+/* Lugares importantes */
+const lugares = [
+    {
+        nombre: "Donde nos conocimos",
+        descripcion: "Aunque odio este lugar en cierta parte, es donde conoci al amor de mi vida y el caminar por toda la escuela me llena de nostalgia de nuestros momentos juntos, fueron 7 años pero pasaron volando estando junto a esa personita que me acompañaba en todo",
+        foto: "images/images_places/escuela.jpg",
+        mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3293.848502682597!2d-58.80134562427054!3d-34.35433357304475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bb61b8df946a1f%3A0xe412a1b571165a31!2sEscuela%20de%20Educaci%C3%B3n%20Secundaria%20T%C3%A9cnica%20N.1!5e0!3m2!1ses-419!2sar!4v1782953564107!5m2!1ses-419!2sar"
+    },
+    {
+        nombre: "Donde comenzo la magia",
+        descripcion: "La verdad que esa noche en ese momento fue magica, inolvidable y maravilloso, cada vez que recuerdo como se sentian tus labios con los mios y mi corazon en ese momento es mi porque peleo por nuestra relacion",
+        foto: "images/images_places/reloj.jpg",
+        mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205.86372280557723!2d-58.79713274994711!3d-34.35506997294639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bb61df281acf5b%3A0x3d19b1612e99ca37!2sMonumento%20Reloj%20Torre!5e0!3m2!1ses-419!2sar!4v1782954393533!5m2!1ses-419!2sar"
+    },
+    {
+        nombre: "Nuestro lugar de amor",
+        descripcion: "Recuerdo cuando empezamos a salir, siempre nos quedabamos un rato largo comiendonos la boca era jodidamente adictivo y no podiamos parar, se sentia demasiado bien comerte la boca por tanto rato, hasta dejabamos pasar colectivos simplemente para pasar un rato mas juntos",
+        foto: "images/images_places/lugar_de_amor.png",
+        mapa: "https://www.google.com/maps/embed?pb=!4v1782955056889!6m8!1m7!1s_i-EbUnyQBzZJWVMzpFNog!2m2!1d-34.35484974210521!2d-58.79668907499414!3f309.63512016487607!4f-4.5349701526562!5f2.3381023277647857"
+    },
+    {
+        nombre: "Donde consolidamos nuestro amor",
+        descripcion: "Lugar donde tuvimos nuestro compromiso, ficticio en materia pero real en amor, algunos diran que fue rapido, al fin y al cabo fue en nuestro primer aniversario, pero eso me da igual, nunca me arrepentire de eso porque lo nuestro es verdadero y no necesito que pasen años para estar seguro, dado el caso que desde el momento que nos besamos lo supe",
+        foto: "images/images_places/casamiento.png",
+        mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d411.74260823039367!2d-58.79794252983895!3d-34.35198305163102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bb61b965278d03%3A0xd69f7c6cf5c51b2c!2sPlaza%20Brigadier%20General%20Juan%20Manuel%20de%20Rosas!5e0!3m2!1ses-419!2sar!4v1782958485786!5m2!1ses-419!2sar"
+    },
+    {
+        nombre: "Simple pero rico y hermoso",
+        descripcion: "La verdad es que extraño esas noches que usabamos nuestra poca plata para darnos un gustito de vez en cuando, un sanguche con unas salsitas o un pancho bien rico, talvez no se piense como la gran cosa pero, para mi es un recuerdo hermoso.",
+        foto: "images/images_places/comida.png",
+        mapa: "https://www.google.com/maps/embed?pb=!4v1782959483474!6m8!1m7!1sDlcXTqFlAfZ_ILffADq2RA!2m2!1d-34.35492849087736!2d-58.79659996332921!3f299.4469602901621!4f-1.1973292339899615!5f3.325193203789971"
+    }
+    // duplicá este objeto para agregar más lugares
+];
+
+const modalLugares = document.getElementById('modal-lugares');
+const modalLugarDetalle = document.getElementById('modal-lugar-detalle');
+
+// Abrir grilla
+document.getElementById('lugares-trigger').addEventListener('click', () => {
+    modalLugares.classList.add('activo');
+});
+
+// Cerrar grilla
+document.getElementById('cerrar-lugares').addEventListener('click', () => {
+    modalLugares.classList.remove('activo');
+});
+
+modalLugares.addEventListener('click', (e) => {
+    if (e.target === modalLugares) modalLugares.classList.remove('activo');
+});
+
+// Abrir detalle al clickear card
+document.querySelectorAll('.lugar-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const lugar = lugares[card.dataset.lugar];
+
+        document.getElementById('lugar-titulo').textContent = lugar.nombre;
+        document.getElementById('lugar-descripcion-modal').textContent = lugar.descripcion;
+        document.getElementById('lugar-foto-modal').src = lugar.foto;
+        document.getElementById('lugar-mapa').src = lugar.mapa;
+
+        modalLugarDetalle.classList.add('activo');
+    });
+});
+
+// Cerrar detalle
+document.getElementById('cerrar-lugar-detalle').addEventListener('click', () => {
+    modalLugarDetalle.classList.remove('activo');
+    document.getElementById('lugar-mapa').src = '';
+});
+
+modalLugarDetalle.addEventListener('click', (e) => {
+    if (e.target === modalLugarDetalle) {
+        modalLugarDetalle.classList.remove('activo');
+        document.getElementById('lugar-mapa').src = '';
     }
 });
