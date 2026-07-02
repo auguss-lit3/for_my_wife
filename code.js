@@ -320,7 +320,7 @@ modalCanciones.addEventListener('click', (e) => {
 
 /* Modal promesa */
 const modalPromesa = document.getElementById('modal-promesa');
-const promesaTexto = `Prometo dar todo de mi en esta relacion, mi paciencia, mi tiempo, mi esfuerzo, mi amor, mi comprension, mi dulzura, mis miedos, mis inseguridades, mis deseos, mi futuro, mi vida entera en ella, ya que lo que mas deseo es que lo nuestro funcione y sea lo mas bonito del universo, no porque quiera que otras personas lo vean (me vale una mierda la opinion de los otros), si no porque te QUIERO, te AMO, te ADORO, te DESEO, te NECESITO, por si no te quedo claro luego de hacerte una pagina web entera.`;
+const promesaTexto = `Prometo dar todo de mi en esta relacion, mi paciencia, mi tiempo, mi esfuerzo, mi amor, mi comprension, mi dulzura, mis miedos, mis inseguridades, mis deseos, mi futuro, mi vida entera en ella, ya que lo que mas deseo es que lo nuestro funcione y sea lo mas bonito del universo, no porque quiera que otras personas lo vean (me vale una mierda la opinion de los otros), si no porque te QUIERO, te AMO, te ADORO, te DESEO, te NECESITO, por si no te quedo claro luego de hacerte una pagina web entera. Prometo que vamos a conseguir todo lo que nos proponemos porque los dos juntos somos fuerza y voluntad, vamos a tener nuestra casa, nuestra familia, nuestros gatos, nuestros perros, vamos a pasear por todos los lugares que nos interesan, comic con, tigre, cafeterias random, restaurantes random, temaiken, italia, roma, canada, donde sea que nos plazca porque lo unico que nos va a detener va a ser la MUERTE.`;
 
 let intervaloPromesa = null;
 
